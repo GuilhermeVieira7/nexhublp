@@ -333,6 +333,11 @@ nav.main-nav a:hover{background:var(--surface-tint); color:var(--nexhub-blue);}
   transition:transform 200ms var(--ease), box-shadow 200ms var(--ease), border-color 200ms var(--ease);
 }
 .course-card:hover{transform:translateY(-3px); box-shadow:var(--shadow-sm); border-color:rgba(8,121,232,0.35);}
+.course-icon{
+  width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+  background:var(--surface-tint); color:var(--nexhub-blue); margin-bottom:10px;
+}
+.course-icon svg{width:17px; height:17px;}
 .course-card h4{font-size:15px; margin-bottom:5px;}
 .course-card p{font-size:13px;}
 .course-card .cat-tag{display:inline-block; margin-top:10px; font-size:10.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--nexhub-cyan);}
@@ -356,6 +361,66 @@ nav.main-nav a:hover{background:var(--surface-tint); color:var(--nexhub-blue);}
 .audience-card h3{font-size:19px; margin-bottom:8px;}
 .audience-card p{color:rgba(255,255,255,0.86); font-size:14.5px;}
 @media (max-width:900px){ .audience-grid{grid-template-columns:1fr;} }
+
+/* ---------- DASHBOARD TEMPO REAL ---------- */
+.dashboard-panel{
+  background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-lg);
+  padding:32px; box-shadow:var(--shadow-sm);
+}
+.dashboard-badge{
+  display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border-radius:100px;
+  background:var(--surface-tint); color:var(--nexhub-blue); font-weight:800; font-size:12px;
+  text-transform:uppercase; letter-spacing:0.08em; margin-bottom:26px;
+}
+.dashboard-badge .dot{width:7px; height:7px; border-radius:50%; background:var(--nexhub-cyan); animation:dotPulse 1.8s ease-in-out infinite;}
+@keyframes dotPulse{0%,100%{opacity:1; transform:scale(1);} 50%{opacity:0.4; transform:scale(0.7);}}
+.dashboard-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:28px;}
+.stat-tile{background:var(--surface-tint); border-radius:var(--radius-sm); padding:22px; text-align:center;}
+.stat-value{display:block; font-size:28px; font-weight:800; background:var(--grad-cool); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.stat-label{display:block; margin-top:6px; font-size:13px; color:var(--text-secondary); font-weight:600;}
+.stat-label .stars{color:var(--nexhub-yellow); margin-left:4px; letter-spacing:1px;}
+.dashboard-cols{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+.ranking-card, .compare-card{background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-sm); padding:20px;}
+.ranking-card h4, .compare-card h4{font-size:15px;}
+.ranking-list{list-style:none; padding:0; margin:14px 0 0; display:flex; flex-direction:column; gap:10px;}
+.ranking-list li{
+  display:flex; justify-content:space-between; align-items:center; gap:10px; font-size:13.5px; font-weight:600;
+  color:var(--text-primary); padding-bottom:10px; border-bottom:1px solid var(--border-softer);
+}
+.ranking-list li:last-child{border-bottom:none; padding-bottom:0;}
+.rank-score{color:var(--nexhub-blue); font-weight:800; flex-shrink:0;}
+.bar-row{display:flex; align-items:center; gap:12px; margin-top:16px; font-size:12.5px; font-weight:700; color:var(--text-secondary);}
+.bar-row:first-of-type{margin-top:14px;}
+.bar-row span:first-child{width:150px; flex-shrink:0;}
+.bar{flex:1; height:8px; border-radius:100px; background:var(--surface-tint); overflow:hidden;}
+.bar-fill{height:100%; border-radius:100px; background:var(--grad-cool);}
+@media (max-width:900px){ .dashboard-grid{grid-template-columns:1fr 1fr;} .dashboard-cols{grid-template-columns:1fr;} }
+@media (max-width:560px){ .dashboard-grid{grid-template-columns:1fr;} .bar-row{flex-wrap:wrap;} .bar-row span:first-child{width:auto;} }
+
+/* ---------- DO CELULAR PARA O TELÃO ---------- */
+.phone-flow{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:18px; margin-top:16px;}
+.phone-step{display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; max-width:150px;}
+.phone-icon{
+  width:52px; height:52px; border-radius:14px; background:var(--surface); border:1px solid var(--border-soft);
+  display:flex; align-items:center; justify-content:center; color:var(--nexhub-blue); box-shadow:var(--shadow-sm);
+}
+.phone-step span{font-size:13px; font-weight:700; color:var(--text-primary);}
+.phone-arrow{color:var(--nexhub-cyan); font-size:20px; font-weight:700;}
+@media (max-width:700px){ .phone-flow{flex-direction:column;} .phone-arrow{transform:rotate(90deg);} }
+
+/* ---------- QR CODE ---------- */
+.qr-panel{
+  display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;
+  background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-lg);
+  padding:40px; box-shadow:var(--shadow-sm);
+}
+.qr-copy{flex:1; min-width:240px;}
+.qr-copy h2{font-size:clamp(24px,3vw,32px); margin-top:12px;}
+.qr-copy p{margin-top:10px; font-size:15.5px;}
+.qr-copy .btn{margin-top:22px;}
+.qr-frame{background:#fff; padding:14px; border-radius:var(--radius-md); border:1px solid var(--border-soft); flex-shrink:0;}
+.qr-frame img{width:200px; height:auto; object-fit:contain; display:block;}
+@media (max-width:640px){ .qr-panel{flex-direction:column; text-align:center;} .qr-copy{text-align:center;} }
 
 /* ---------- JORNADA ---------- */
 .journey-track{display:flex; flex-direction:column; gap:0;}
@@ -476,10 +541,10 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
       <a href="#como-funciona">Como funciona</a>
       <a href="#beneficios">Benefícios</a>
       <a href="#cursos">Cursos</a>
-      <a href="#analistas">Para analistas</a>
+      <a href="#acessar">Acessar</a>
     </nav>
     <div class="header-actions">
-      <a href="#analistas" class="btn btn-primary">Quero apresentar</a>
+      <a href="#acessar" class="btn btn-primary">Acessar plataforma</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav">
         <span></span>
       </button>
@@ -490,8 +555,8 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
     <a href="#como-funciona">Como funciona</a>
     <a href="#beneficios">Benefícios</a>
     <a href="#cursos">Cursos</a>
-    <a href="#analistas">Para analistas</a>
-    <a href="#top" class="btn btn-primary">Quero apresentar</a>
+    <a href="#acessar">Acessar</a>
+    <a href="#acessar" class="btn btn-primary">Acessar plataforma</a>
   </nav>
 </header>
 
@@ -503,7 +568,7 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
       <div class="hero-copy reveal">
         <span class="eyebrow">NexHub · Ecossistema Intercursos</span>
         <h1>Onde cursos diferentes criam <span class="accent">algo maior</span> juntos.</h1>
-        <p class="lead">O NexHub conecta estudantes, ideias, competências e projetos de diferentes áreas em um único ambiente colaborativo — de Administração à Medicina, do Direito ao Design.</p>
+        <p class="lead">O NexHub conecta estudantes, ideias, competências e projetos de diferentes áreas em um único ambiente colaborativo — da Administração à Enfermagem, do Direito à Engenharia.</p>
         <div class="hero-ctas">
           <a href="#sobre" class="btn btn-primary" data-scroll="#sobre">Conhecer o NexHub</a>
           <a href="#cursos" class="btn btn-ghost" data-scroll="#cursos">Ver todos os cursos</a>
@@ -544,7 +609,7 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
         <div class="node n6">Odontologia</div>
         <div class="node n7">Fisioterapia</div>
         <div class="node n8">Nutrição</div>
-        <div class="node n9">Arquitetura</div>
+        <div class="node n9">ADS</div>
       </div>
     </div>
   </section>
@@ -565,18 +630,19 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
     <div class="container about-grid">
       <div class="about-copy reveal">
         <span class="eyebrow">O que é</span>
-        <h2 style="margin-top:14px;">Mais do que uma plataforma. Um ponto de encontro entre áreas.</h2>
-        <p>O NexHub é um ambiente institucional criado para aproximar estudantes e cursos que normalmente vivem experiências acadêmicas separadas.</p>
-        <p>Dentro dele, estudantes podem descobrir iniciativas, participar de desafios, colaborar com outras áreas e transformar conhecimentos diferentes em soluções compartilhadas.</p>
+        <h2 style="margin-top:14px;">Mais do que uma plataforma. Uma vitrine para os projetos da ExpoFadesa.</h2>
+        <p>O NexHub é um sistema intercursos criado para centralizar os projetos apresentados durante a ExpoFadesa.</p>
+        <p>Cada turma chega à plataforma com seu projeto já desenvolvido e realiza seu cadastro para que ele passe a integrar a vitrine digital do evento.</p>
+        <p>Durante a ExpoFadesa, os visitantes poderão visualizar e avaliar os projetos, gerando informações que serão utilizadas para acompanhar o evento.</p>
         <span class="about-badge">INTERCURSOS</span>
-        <div class="about-quote">Nenhum curso ocupa o centro sozinho. O valor nasce justamente do encontro entre eles.</div>
+        <div class="about-quote">Nenhum curso ocupa o centro sozinho. Todos os projetos fazem parte da mesma experiência.</div>
       </div>
       <div class="about-visual reveal">
         <div class="glow-symbol" aria-hidden="true"></div>
         <span class="chip" style="top:12%; left:10%;">Saúde</span>
         <span class="chip" style="top:8%; right:12%;">Engenharia</span>
         <span class="chip" style="bottom:14%; left:14%;">Direito</span>
-        <span class="chip" style="bottom:10%; right:10%;">Design</span>
+        <span class="chip" style="bottom:10%; right:10%;">Tecnologia</span>
         <span class="chip" style="top:44%; left:38%;">Gestão</span>
       </div>
     </div>
@@ -594,23 +660,23 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
         <div class="flow-steps">
           <div class="flow-step">
             <div class="flow-num">01</div>
-            <h3>Descobrir</h3>
-            <p>Encontre oportunidades, desafios, projetos e iniciativas de diferentes áreas.</p>
+            <h3>Cadastrar</h3>
+            <p>Cada turma cadastra seu projeto já desenvolvido diretamente no NexHub.</p>
           </div>
           <div class="flow-step">
             <div class="flow-num">02</div>
-            <h3>Conectar</h3>
-            <p>Conheça estudantes e conhecimentos complementares ao seu curso.</p>
+            <h3>Centralizar</h3>
+            <p>Todos os projetos passam a integrar a vitrine digital da ExpoFadesa.</p>
           </div>
           <div class="flow-step">
             <div class="flow-num">03</div>
-            <h3>Colaborar</h3>
-            <p>Forme equipes multidisciplinares e participe de experiências compartilhadas.</p>
+            <h3>Avaliar</h3>
+            <p>Visitantes conhecem e avaliam os projetos durante o evento.</p>
           </div>
           <div class="flow-step">
             <div class="flow-num">04</div>
-            <h3>Evoluir</h3>
-            <p>Transforme participação acadêmica em experiência, repertório e novas competências.</p>
+            <h3>Analisar</h3>
+            <p>As avaliações geram dados e feedback sobre cada projeto apresentado.</p>
           </div>
         </div>
       </div>
@@ -680,8 +746,8 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
         </div>
         <div class="example-card">
           <span class="example-num">EXEMPLO 03</span>
-          <div class="example-areas"><span>Engenharia Civil</span><span>Arquitetura e Urbanismo</span><span>Engenharia Elétrica</span></div>
-          <p>Criando um projeto de espaço urbano sustentável e energeticamente eficiente.</p>
+          <div class="example-areas"><span>Engenharia Civil</span><span>Engenharia Elétrica</span><span>ADS</span></div>
+          <p>Criando um sistema de monitoramento inteligente para espaços sustentáveis.</p>
         </div>
         <div class="example-card">
           <span class="example-num">EXEMPLO 04</span>
@@ -720,7 +786,7 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
         <div class="filter-row" id="filterRow" role="group" aria-label="Filtrar cursos por área">
           <button class="filter-btn active" data-filter="todos">Todos</button>
           <button class="filter-btn" data-filter="saude">Saúde</button>
-          <button class="filter-btn" data-filter="engenharias">Engenharias &amp; Arquitetura</button>
+          <button class="filter-btn" data-filter="engenharias">Engenharias &amp; Tecnologia</button>
           <button class="filter-btn" data-filter="gestao">Gestão &amp; Negócios</button>
           <button class="filter-btn" data-filter="humanas">Direito</button>
         </div>
@@ -730,28 +796,105 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
     </div>
   </section>
 
-  <!-- PARA QUEM É -->
-  <section class="section section-tint">
+  <!-- UMA PLATAFORMA PARA OS PROJETOS DA EXPOFADESA -->
+  <section class="section section-tint" id="expofadesa">
     <div class="container">
       <div class="section-head center reveal">
-        <span class="eyebrow">Para quem é</span>
-        <h2>Um ecossistema para toda a comunidade acadêmica</h2>
+        <span class="eyebrow">ExpoFadesa</span>
+        <h2>Uma plataforma para os projetos da ExpoFadesa</h2>
       </div>
       <div class="audience-grid reveal">
         <div class="audience-card a1">
-          <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V6a2 2 0 0 1 2-2h8l6 6v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M14 4v6h6"></path></svg>
-          <h3>Para alunos</h3>
-          <p>Descubra oportunidades fora da sua própria turma e transforme conhecimentos em experiências colaborativas.</p>
+          <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="7" height="7" rx="1.5"></rect><rect x="13" y="4" width="7" height="7" rx="1.5"></rect><rect x="4" y="13" width="7" height="7" rx="1.5"></rect><rect x="13" y="13" width="7" height="7" rx="1.5"></rect></svg>
+          <h3>Centralização</h3>
+          <p>Todos os projetos dos diferentes cursos reunidos em um único ambiente.</p>
         </div>
         <div class="audience-card a2">
-          <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"></path></svg>
-          <h3>Para coordenadores</h3>
-          <p>Amplie a integração acadêmica e crie pontes entre cursos e projetos.</p>
+          <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          <h3>Visibilidade</h3>
+          <p>Cada projeto possui seu espaço dentro da plataforma durante a ExpoFadesa.</p>
         </div>
         <div class="audience-card a3">
-          <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v12H9l-5 4Z"></path></svg>
-          <h3>Para analistas</h3>
-          <p>Apresente o ecossistema de forma clara, consistente e padronizada para diferentes públicos.</p>
+          <svg class="aud-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 14 9 21 9 15.5 13.2 17.5 20.5 12 16 6.5 20.5 8.5 13.2 3 9 10 9Z"></path></svg>
+          <h3>Feedback</h3>
+          <p>As avaliações dos visitantes geram informações sobre os projetos apresentados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPOFADESA EM TEMPO REAL -->
+  <section class="section" id="tempo-real">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">ExpoFadesa em tempo real</span>
+        <h2>Os dados do evento também fazem parte da experiência.</h2>
+        <p>Durante a ExpoFadesa, as avaliações realizadas pelos visitantes serão registradas pelo NexHub e transformadas automaticamente em informações visuais. Esses dados poderão ser projetados durante o evento, permitindo acompanhar em tempo real o desempenho dos projetos e dos cursos.</p>
+      </div>
+      <div class="dashboard-panel reveal">
+        <span class="dashboard-badge"><span class="dot" aria-hidden="true"></span>Atualização em tempo real</span>
+        <div class="dashboard-grid">
+          <div class="stat-tile">
+            <span class="stat-value">1.284</span>
+            <span class="stat-label">Avaliações registradas</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-value">4.7<span class="stars">★★★★★</span></span>
+            <span class="stat-label">Média geral dos projetos</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-value">16</span>
+            <span class="stat-label">Cursos participantes</span>
+          </div>
+        </div>
+        <div class="dashboard-cols">
+          <div class="ranking-card">
+            <h4>Projetos mais avaliados</h4>
+            <ol class="ranking-list">
+              <li><span>1. Sistema de triagem inteligente</span><span class="rank-score">4.9</span></li>
+              <li><span>2. App de reabilitação motora</span><span class="rank-score">4.8</span></li>
+              <li><span>3. Estrutura sustentável modular</span><span class="rank-score">4.7</span></li>
+              <li><span>4. Plataforma jurídica cidadã</span><span class="rank-score">4.6</span></li>
+            </ol>
+          </div>
+          <div class="compare-card">
+            <h4>Comparação entre cursos</h4>
+            <div class="bar-row"><span>Saúde</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div></div>
+            <div class="bar-row"><span>Engenharias &amp; Tecnologia</span><div class="bar"><div class="bar-fill" style="width:76%"></div></div></div>
+            <div class="bar-row"><span>Gestão &amp; Negócios</span><div class="bar"><div class="bar-fill" style="width:64%"></div></div></div>
+            <div class="bar-row"><span>Direito</span><div class="bar"><div class="bar-fill" style="width:58%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DO CELULAR PARA O TELÃO -->
+  <section class="section section-tint">
+    <div class="container">
+      <div class="section-head center reveal">
+        <h2>Do celular para o telão.</h2>
+        <p>Cada avaliação registrada pelos visitantes contribui para os indicadores exibidos durante o evento.</p>
+      </div>
+      <div class="phone-flow reveal">
+        <div class="phone-step">
+          <div class="phone-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg></div>
+          <span>Visitante avalia</span>
+        </div>
+        <span class="phone-arrow" aria-hidden="true">→</span>
+        <div class="phone-step">
+          <div class="phone-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="4" r="1.4"></circle><circle cx="12" cy="20" r="1.4"></circle><circle cx="4" cy="12" r="1.4"></circle><circle cx="20" cy="12" r="1.4"></circle><path d="M12 7v2M12 15v2M9 12H7M17 12h-2"></path></svg></div>
+          <span>NexHub registra</span>
+        </div>
+        <span class="phone-arrow" aria-hidden="true">→</span>
+        <div class="phone-step">
+          <div class="phone-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M2 20h20"></path></svg></div>
+          <span>Dados são atualizados</span>
+        </div>
+        <span class="phone-arrow" aria-hidden="true">→</span>
+        <div class="phone-step">
+          <div class="phone-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M8 20h8"></path><path d="M12 16v4"></path></svg></div>
+          <span>Informações são projetadas na ExpoFadesa</span>
         </div>
       </div>
     </div>
@@ -762,80 +905,15 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Jornada</span>
-        <h2>Do interesse à colaboração</h2>
+        <h2>Do projeto à ExpoFadesa</h2>
       </div>
       <div class="journey-track reveal">
-        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Conhece o NexHub</span></div>
-        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Explora oportunidades</span></div>
-        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Encontra outros cursos</span></div>
-        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Participa</span></div>
-        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Colabora</span></div>
-        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Constrói experiência</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ÁREA PARA ANALISTAS -->
-  <section class="section analysts-section" id="analistas">
-    <div class="container analysts-grid">
-      <div class="reveal">
-        <span class="eyebrow">Para analistas</span>
-        <h2 style="margin-top:14px; font-size:clamp(26px,3.6vw,36px);">Uma apresentação. A mesma mensagem para toda a instituição.</h2>
-        <p style="margin-top:16px; font-size:16px;">Esta página foi estruturada para ajudar analistas a apresentar o NexHub de maneira padronizada, independentemente do curso ou área visitada.</p>
-        <div class="important-box">
-          <span class="tag">Importante</span>
-          <p>O NexHub não deve ser apresentado como uma plataforma exclusiva de tecnologia. Exemplos tecnológicos são apenas uma das possibilidades do ecossistema.</p>
-        </div>
-      </div>
-      <div class="principles-list reveal">
-        <div class="principle">
-          <span class="pnum">01</span>
-          <div><h4>Apresente o ecossistema</h4><p>Antes de falar de funcionalidades, explique o propósito.</p></div>
-        </div>
-        <div class="principle">
-          <span class="pnum">02</span>
-          <div><h4>Conecte com o curso</h4><p>Use exemplos próximos da realidade daquele público.</p></div>
-        </div>
-        <div class="principle">
-          <span class="pnum">03</span>
-          <div><h4>Volte ao todo</h4><p>Mostre que cada curso participa de algo maior.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROTEIRO -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Roteiro da apresentação</span>
-        <h2>Uma apresentação em 8–12 minutos</h2>
-      </div>
-      <div class="script-timeline reveal">
-        <div class="script-item">
-          <span class="script-time">0–1 min<br>Abertura</span>
-          <div><blockquote>"Imagine poder desenvolver projetos não apenas com colegas do seu curso, mas com pessoas de áreas completamente diferentes."</blockquote></div>
-        </div>
-        <div class="script-item">
-          <span class="script-time">1–3 min<br>Visão geral</span>
-          <div><h4>O que é o NexHub</h4><p>Explique o conceito intercursos e o propósito do ecossistema.</p></div>
-        </div>
-        <div class="script-item">
-          <span class="script-time">3–5 min<br>Benefícios</span>
-          <div><h4>Contextualize</h4><p>Traga os benefícios para a realidade daquele curso específico.</p></div>
-        </div>
-        <div class="script-item">
-          <span class="script-time">5–7 min<br>Exemplos</span>
-          <div><h4>Combinações interdisciplinares</h4><p>Mostre exemplos reais de projetos entre áreas diferentes.</p></div>
-        </div>
-        <div class="script-item">
-          <span class="script-time">7–9 min<br>Como participar</span>
-          <div><h4>Entrada e colaboração</h4><p>Apresente como estudantes podem entrar e colaborar na plataforma.</p></div>
-        </div>
-        <div class="script-item">
-          <span class="script-time">9–10 min<br>Encerramento</span>
-          <div><blockquote>"Seu curso não está apenas dentro do NexHub. Ele faz parte do que torna o NexHub possível."</blockquote></div>
-        </div>
+        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Projeto desenvolvido</span></div>
+        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Cadastro no NexHub</span></div>
+        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Projeto publicado</span></div>
+        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Apresentação no evento</span></div>
+        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Avaliação dos visitantes</span></div>
+        <div class="journey-step"><div class="journey-dot"></div><span class="journey-label">Dados e feedback</span></div>
       </div>
     </div>
   </section>
@@ -866,6 +944,23 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
     </div>
   </section>
 
+  <!-- ACESSE O NEXHUB -->
+  <section class="section" id="acessar">
+    <div class="container">
+      <div class="qr-panel reveal">
+        <div class="qr-copy">
+          <span class="eyebrow">Acesso rápido</span>
+          <h2>Acesse o NexHub</h2>
+          <p>Aponte a câmera para o QR Code e conheça a plataforma.</p>
+          <a href="#top" class="btn btn-primary">Acessar plataforma</a>
+        </div>
+        <div class="qr-frame">
+          <img src="fotos/qrcode.png" alt="QR Code de acesso ao NexHub">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA FINAL -->
   <section class="final-cta">
     <div class="symbol-bg" aria-hidden="true"></div>
@@ -873,7 +968,7 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
       <h2>Todo curso tem algo a ensinar.<br>Todo curso tem algo a descobrir.</h2>
       <p class="sub">É isso que acontece quando eles deixam de caminhar separados.</p>
       <div class="final-ctas">
-        <a href="#analistas" class="btn btn-yellow" data-scroll="#analistas">Quero apresentar o NexHub</a>
+        <a href="#acessar" class="btn btn-yellow" data-scroll="#acessar">Quero apresentar o NexHub</a>
         <a href="#cursos" class="btn btn-light" data-scroll="#cursos">Explorar cursos</a>
       </div>
       <p class="micro">NexHub · Conectando conhecimento além das salas de aula.</p>
@@ -898,7 +993,7 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
         <a href="#sobre">Sobre</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#cursos">Cursos</a>
-        <a href="#analistas">Para analistas</a>
+        <a href="#acessar">Acessar</a>
       </div>
     </div>
   </div>
@@ -967,30 +1062,49 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
   /* ============================================================
      PERSONALIZAÇÃO: ATUALIZAR CURSOS AQUI
      ============================================================ */
+  var ICONS = {
+    ads: '<path d="M9 6 4 12l5 6"/><path d="M15 6l5 6-5 6"/>',
+    biomedicina: '<circle cx="12" cy="10" r="3"/><path d="M12 13v5"/><path d="M9 21h6"/><path d="M7 7 4 4"/><path d="M17 7l3-3"/>',
+    farmacia: '<rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/>',
+    enfermagem: '<path d="M6 4v6a4 4 0 0 0 8 0V4"/><path d="M10 14v2a5 5 0 0 0 10 0v-1"/><circle cx="20" cy="14" r="1.3"/><circle cx="6" cy="4" r="1.1"/><circle cx="14" cy="4" r="1.1"/>',
+    odontologia: '<path d="M12 3c-3 0-5 2-5 5 0 3 1 4 1 7 0 2 1 3 2 3s1.5-2 2-4c.5 2 1 4 2 4s2-1 2-3c0-3 1-4 1-7 0-3-2-5-5-5Z"/>',
+    nutricao: '<path d="M5 19c8-1 13-6 14-14-8 1-13 6-14 14Z"/><path d="M5 19c2-4 5-7 9-9"/>',
+    fisioterapia: '<circle cx="12" cy="4" r="2"/><path d="M12 6v6l-4 6"/><path d="M12 12l4 6"/><path d="M8 10l4 2 4-2"/>',
+    fonoaudiologia: '<path d="M4 10v4"/><path d="M8 7v10"/><path d="M12 4v16"/><path d="M16 7v10"/><path d="M20 10v4"/>',
+    to: '<path d="M7 11V5a1.5 1.5 0 0 1 3 0v5M10 10V4a1.5 1.5 0 0 1 3 0v6M13 10V5a1.5 1.5 0 0 1 3 0v6M16 11V8a1.5 1.5 0 0 1 3 0v5c0 3.5-2 6-5.5 6h-1c-2.5 0-3.5-1-5-3l-2-3c-.6-1 .5-2 1.5-1.3L8 12"/>',
+    psicologia: '<path d="M9 3a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5h1"/><path d="M15 3a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5h-1"/><path d="M9 3v13"/><path d="M15 3v13"/>',
+    civil: '<path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/>',
+    eletrica: '<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>',
+    computacao: '<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/>',
+    administracao: '<path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M2 20h20"/>',
+    contabeis: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01"/>',
+    direito: '<path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 8h6"/><path d="M13 8h6"/><path d="M5 8 2 14a3 3 0 0 0 6 0L5 8Z"/><path d="M19 8l-3 6a3 3 0 0 0 6 0l-3-6Z"/>'
+  };
+
   var COURSES = [
-    {n:"Biomedicina", d:"ciência e diagnóstico", c:"saude"},
-    {n:"Farmácia", d:"medicamentos e cuidado", c:"saude"},
-    {n:"Enfermagem", d:"assistência e prevenção", c:"saude"},
-    {n:"Odontologia", d:"saúde bucal", c:"saude"},
-    {n:"Nutrição", d:"alimentação e saúde", c:"saude"},
-    {n:"Fisioterapia", d:"movimento e reabilitação", c:"saude"},
-    {n:"Fonoaudiologia", d:"comunicação e audição", c:"saude"},
-    {n:"Terapia Ocupacional", d:"autonomia e reabilitação", c:"saude"},
-    {n:"Psicologia", d:"comportamento e bem-estar", c:"saude"},
+    {n:"Biomedicina", d:"ciência e diagnóstico", c:"saude", i:"biomedicina"},
+    {n:"Farmácia", d:"medicamentos e cuidado", c:"saude", i:"farmacia"},
+    {n:"Enfermagem", d:"assistência e prevenção", c:"saude", i:"enfermagem"},
+    {n:"Odontologia", d:"saúde bucal", c:"saude", i:"odontologia"},
+    {n:"Nutrição", d:"alimentação e saúde", c:"saude", i:"nutricao"},
+    {n:"Fisioterapia", d:"movimento e reabilitação", c:"saude", i:"fisioterapia"},
+    {n:"Fonoaudiologia", d:"comunicação e audição", c:"saude", i:"fonoaudiologia"},
+    {n:"Terapia Ocupacional", d:"autonomia e reabilitação", c:"saude", i:"to"},
+    {n:"Psicologia", d:"comportamento e bem-estar", c:"saude", i:"psicologia"},
 
-    {n:"Arquitetura e Urbanismo", d:"espaços e experiências", c:"engenharias"},
-    {n:"Engenharia Civil", d:"infraestrutura e construção", c:"engenharias"},
-    {n:"Engenharia Elétrica", d:"energia e sistemas", c:"engenharias"},
-    {n:"Engenharia da Computação", d:"tecnologia e sistemas", c:"engenharias"},
+    {n:"Engenharia Civil", d:"infraestrutura e construção", c:"engenharias", i:"civil"},
+    {n:"Engenharia Elétrica", d:"energia e sistemas", c:"engenharias", i:"eletrica"},
+    {n:"Engenharia da Computação", d:"tecnologia e sistemas", c:"engenharias", i:"computacao"},
+    {n:"Análise e Desenvolvimento de Sistemas", d:"tecnologia e desenvolvimento", c:"engenharias", i:"ads"},
 
-    {n:"Administração", d:"gestão e estratégia", c:"gestao"},
-    {n:"Ciências Contábeis", d:"finanças e controle", c:"gestao"},
+    {n:"Administração", d:"gestão e estratégia", c:"gestao", i:"administracao"},
+    {n:"Ciências Contábeis", d:"finanças e controle", c:"gestao", i:"contabeis"},
 
-    {n:"Direito", d:"legislação e cidadania", c:"humanas"}
+    {n:"Direito", d:"legislação e cidadania", c:"humanas", i:"direito"}
   ];
 
   var CAT_LABEL = {
-    saude:"Saúde", engenharias:"Engenharias & Arquitetura", gestao:"Gestão & Negócios", humanas:"Direito"
+    saude:"Saúde", engenharias:"Engenharias & Tecnologia", gestao:"Gestão & Negócios", humanas:"Direito"
   };
 
   /* ---------- MARQUEE ---------- */
@@ -1017,7 +1131,8 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
       return matchesFilter && matchesSearch;
     });
     grid.innerHTML = list.map(function(c){
-      return '<div class="course-card"><h4>'+c.n+'</h4><p>'+c.d+'</p><span class="cat-tag">'+CAT_LABEL[c.c]+'</span></div>';
+      var svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">'+ICONS[c.i]+'</svg>';
+      return '<div class="course-card"><div class="course-icon" aria-hidden="true">'+svg+'</div><h4>'+c.n+'</h4><p>'+c.d+'</p><span class="cat-tag">'+CAT_LABEL[c.c]+'</span></div>';
     }).join('');
     emptyEl.style.display = list.length === 0 ? 'block' : 'none';
   }
