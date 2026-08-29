@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NexHub · Ecossistema Intercursos</title>
 <meta name="description" content="NexHub é o ecossistema intercursos da UNIFADESA, conectando estudantes, coordenadores e cursos de toda a instituição em um único ambiente colaborativo.">
+<link rel="icon" type="image/png" href="fotos/favicon.png">
 <style>
 /* ============================================================
    PERSONALIZAÇÃO: ALTERAR PALETA NEXHUB AQUI
@@ -128,15 +129,16 @@ nav.main-nav a:hover{background:var(--surface-tint); color:var(--nexhub-blue);}
 .menu-toggle[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg);}
 
 .mobile-nav{
-  display:none; position:fixed; inset:0; top:64px; z-index:99;
-  background:var(--surface); padding:24px; overflow-y:auto;
+  display:none; position:absolute; top:100%; left:0; right:0; width:100%; z-index:99;
+  max-height:calc(100vh - 64px); background:var(--surface); padding:8px 24px 24px; overflow-y:auto;
+  border-top:1px solid var(--border-softer); box-shadow:0 16px 32px rgba(6,32,80,0.12);
 }
-.mobile-nav.open{display:block;}
+.mobile-nav.open{display:flex; flex-direction:column;}
 .mobile-nav a{
   display:block; padding:16px 4px; font-size:19px; font-weight:600; text-decoration:none; color:var(--text-primary);
   border-bottom:1px solid var(--border-softer);
 }
-.mobile-nav .btn{margin-top:20px; width:100%;}
+.mobile-nav .btn{margin-top:20px; width:100%; flex-shrink:0;}
 
 @media (max-width:900px){
   nav.main-nav{display:none;}
