@@ -138,7 +138,8 @@ nav.main-nav a:hover{background:var(--surface-tint); color:var(--nexhub-blue);}
   display:block; padding:16px 4px; font-size:19px; font-weight:600; text-decoration:none; color:var(--text-primary);
   border-bottom:1px solid var(--border-softer);
 }
-.mobile-nav .btn{margin-top:20px; width:100%; flex-shrink:0;}
+.mobile-nav .btn{display:flex; justify-content:center; text-align:center; margin-top:20px; width:100%; flex-shrink:0; padding:16px 26px; border-bottom:none;}
+.mobile-nav .btn-primary{color:#fff;}
 
 @media (max-width:900px){
   nav.main-nav{display:none;}
@@ -520,7 +521,9 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
   display:inline-flex; align-items:center; gap:10px; margin-top:18px; padding:8px 14px 8px 8px;
   background:#fff; border-radius:100px;
 }
-.institution-badge img{height:26px; width:auto; object-fit:contain;}
+.institution-badge img{height:26px; width:auto; object-fit:contain; filter:none;}
+a.institution-badge{text-decoration:none; transition:transform 220ms var(--ease);}
+a.institution-badge:hover{transform:translateY(-2px);}
 .institution-badge span{font-size:12px; font-weight:700; color:#3a2c08; letter-spacing:0.02em;}
 .footer-links{display:flex; gap:40px; flex-wrap:wrap;}
 .footer-col h5{font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5); margin-bottom:14px;}
@@ -1014,10 +1017,10 @@ footer.site-footer{background:#08214e; color:rgba(255,255,255,0.75); padding:56p
     <div class="footer-brand">
       <img src="fotos/logo-nexhub.png" alt="NexHub">
       <p>NexHub — Ecossistema Intercursos. Um ambiente institucional que conecta estudantes, coordenadores e cursos de toda a instituição.</p>
-      <div class="institution-badge">
+      <a href="https://nexhub.techtriad.com.br/" class="institution-badge" target="_blank" rel="noopener">
         <img src="fotos/logo unifadesa.jpg" alt="UNIFADESA">
         <span>Sistema Intercursos da UNIFADESA</span>
-      </div>
+      </a>
     </div>
     <div class="footer-links">
       <div class="footer-col">
